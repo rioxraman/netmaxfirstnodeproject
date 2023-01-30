@@ -20,7 +20,10 @@ var contactList = [
 
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname, 'views'))
+
 app.use(express.urlencoded())
+app.use(express.static('assets'))
+
 app.get('/', (req, res) => {
   res.render('index',{
     title:"nodeclass",
@@ -29,11 +32,21 @@ app.get('/', (req, res) => {
     } 
   })
 })
+
+app.post('/contact',(req,res)=>{
+  console.log("expected error :",req.body);
+  contactList.push(req.body)
+  return res.redirect('/viewlist')
+})
+// app.post('/contact',function name(params) {
+  
+// })
+
 app.get('/viewlist', (req, res) => {
   res.render('project',{
     title:"contact",
     
-    contact_list:contactList
+    name:contactList
     
   })
 })
