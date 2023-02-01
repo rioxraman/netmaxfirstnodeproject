@@ -50,6 +50,24 @@ app.get('/viewlist', (req, res) => {
     
   })
 })
+
+app.get('/delete', (req, res) => {
+  console.log(req.query);
+  let phone = req.params.phone
+  let index = contactList.findIndex(e=>e.phone == phone)
+  if(index != -1){
+
+    contactList.splice(index,1)
+  }
+  return res.redirect('back');
+ 
+})
+
+
+app.get("/success/:tarun",(req,res)=>{
+    console.log(req.params);
+})
+
 app.post('/create', function(req, res){
     
   // contactList.push({
