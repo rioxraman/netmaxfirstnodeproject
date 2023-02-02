@@ -17,9 +17,9 @@
         <% for (let i of name) { %> 
             
             <li>
-                <p><%= i.name %></p>
-                <p><%= i.phone %></p>
-                <a href="/delete/?phone=<%= i.phone %>"><i class="fa fa-calendar-times-o" style="font-size:36px;color:red"></i></a>
+                <a><%= i.name %></a>
+                <a><%= i.phone %></a>
+                <a href="/delete/?phone=<%= i.phone %>"><i class="fa fa-ban" style="font-size:36px;color:black"></i></a>
                 
             </li>
             
